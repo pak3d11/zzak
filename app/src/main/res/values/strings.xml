@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">BikeCluster</string>
+
+    <string name="map">지도</string>
+    <string name="speed_check">속도계</string>
+    <string name="home">홈</string>
 </resources>
