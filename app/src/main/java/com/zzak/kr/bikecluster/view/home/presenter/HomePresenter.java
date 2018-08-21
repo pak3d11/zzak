@@ -15,7 +15,7 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void attachView(HomeContract.View view) {
-
+        HomePresenter.this.mView = view;
     }
 
     @Override
