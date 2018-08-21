@@ -1,6 +1,5 @@
-package com.compa.ikhp.base;
+package com.zzak.kr.bikecluster.base;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -16,10 +15,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.compa.ikhp.R;
-import com.compa.ikhp.utils.UtilAlert;
-import com.compa.ikhp.utils.UtilDeviceInfo;
-import com.compa.ikhp.utils.UtilViewIdGenerator;
+import com.zzak.kr.bikecluster.R;
+import com.zzak.kr.bikecluster.util.UtilAlert;
+import com.zzak.kr.bikecluster.util.UtilDeviceInfo;
+import com.zzak.kr.bikecluster.util.UtilViewIdGenerator;
 
 /**
  * 매우 자주 사용되는 주 메소드를 정의 한 후,
@@ -81,7 +80,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         this.context = this.getApplication();
         this.initIntentData(savedInstanceState);
         if(this.initFragment() != null) {
-            this.mainFrame = UtilViewIdGenerator.Companion.generateViewId();
+            this.mainFrame = UtilViewIdGenerator.generateViewId();
             LinearLayout layout = new LinearLayout(this);
             LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT

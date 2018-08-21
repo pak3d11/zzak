@@ -1,4 +1,4 @@
-package com.compa.ikhp.utils;
+package com.zzak.kr.bikecluster.util;
 
 import android.app.Activity;
 import android.content.Context;
@@ -29,12 +29,8 @@ import android.view.Display;
 import android.view.KeyCharacterMap;
 import android.view.KeyEvent;
 import android.view.ViewConfiguration;
-
-import com.compa.ikhp.IkhpApplication;
-import com.compa.ikhp.BuildConfig;
-import com.esafirm.imagepicker.features.ImagePicker;
-import com.esafirm.imagepicker.features.ReturnMode;
-
+import com.zzak.kr.bikecluster.BikeClusterApplication;
+import com.zzak.kr.bikecluster.BuildConfig;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -455,6 +451,7 @@ public class UtilDeviceInfo {
      * @param showCamera 카메라 기능 사용 여부
      */
     public static void callGallery(Activity activity, int selectCount, boolean folderMode, boolean showCamera){
+/*
         ImagePicker.create(activity)
                 .returnMode(ReturnMode.NONE)
                 .folderMode(folderMode)
@@ -463,6 +460,7 @@ public class UtilDeviceInfo {
                 .limit(selectCount)
                 .showCamera(showCamera)
                 .start();
+*/
 //        if(ImagePicker.shouldHandle(requestCode, resultCode, data)) {
 //            RESGalleryList<Image> images = ImagePicker.getImages(data);
 //            for (int i = 0; i < images.size(); i++) {
@@ -472,14 +470,14 @@ public class UtilDeviceInfo {
 
     }
     public static void callGallery(Fragment fragment, int selectCount, boolean folderMode, boolean showCamera){
-        ImagePicker.create(fragment)
+/*        ImagePicker.create(fragment)
                 .returnMode(ReturnMode.NONE)
                 .folderMode(folderMode)
                 .toolbarFolderTitle("앨범")
                 .toolbarImageTitle("")
                 .limit(selectCount)
                 .showCamera(showCamera)
-                .start();
+                .start();*/
     }
 
     /**
@@ -518,14 +516,14 @@ public class UtilDeviceInfo {
      * @param badgeType 연산 결정
      */
     public static void setBadgeCount(Context context, int count, int badgeType) {
-        SharedPreferences pref = context.getApplicationContext().getSharedPreferences(IkhpApplication.PREF_NAME, context.MODE_PRIVATE);
+        SharedPreferences pref = context.getApplicationContext().getSharedPreferences(BikeClusterApplication.PREF_NAME, context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         if(pref != null){
             int beforeCount = pref.getInt("data.badge", 0);
             if(badgeType > 0){
                 Intent intent = new Intent("android.intent.action.BADGE_COUNT_UPDATE");
-                intent.putExtra("badge_count_package_name", IkhpApplication.getPackageName(context));
-                intent.putExtra("badge_count_class_name", IkhpApplication.getLaunchClassName(context));
+                intent.putExtra("badge_count_package_name", BikeClusterApplication.getPackageName(context));
+                intent.putExtra("badge_count_class_name", BikeClusterApplication.getLaunchClassName(context));
                 switch (badgeType){
                     case BadgeType.PLUS:
                         intent.putExtra("badge_count", beforeCount + count);

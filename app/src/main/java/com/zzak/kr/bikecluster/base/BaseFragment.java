@@ -1,4 +1,4 @@
-package com.compa.ikhp.base;
+package com.zzak.kr.bikecluster.base;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -18,9 +18,9 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.EditText;
 import android.widget.Toast;
-import com.compa.ikhp.R;
-import com.compa.ikhp.utils.UtilAlert;
-import com.compa.ikhp.utils.UtilDeviceInfo;
+import com.zzak.kr.bikecluster.R;
+import com.zzak.kr.bikecluster.util.UtilAlert;
+import com.zzak.kr.bikecluster.util.UtilDeviceInfo;
 
 /**
  * 매우 자주 사용되는 주 메소드를 정의 한 후,
@@ -45,8 +45,8 @@ public abstract class BaseFragment extends Fragment {
     private Toast mToast;
     private Snackbar mSnackBar;
     private ProgressDialog progressDialog;
-    public BaseFragment.OnFragmentCallBackListener mCallBack;
-    public BaseFragment.OnBackPressedListener mOnBackPressedListener;
+    public OnFragmentCallBackListener mCallBack;
+    public OnBackPressedListener mOnBackPressedListener;
     protected BaseUIHandler mUiHandler;
 
     protected abstract void BundleData(Bundle savedInstanceState);
@@ -56,7 +56,7 @@ public abstract class BaseFragment extends Fragment {
 
     public BaseFragment() {}
 
-    public void setOnFragmentCallBackListener(BaseFragment.OnFragmentCallBackListener listener) {
+    public void setOnFragmentCallBackListener(OnFragmentCallBackListener listener) {
         this.mCallBack = listener;
     }
 
@@ -66,11 +66,11 @@ public abstract class BaseFragment extends Fragment {
         }
     }
 
-    public void setOnBackPressedListener(BaseFragment.OnBackPressedListener listener){
+    public void setOnBackPressedListener(OnBackPressedListener listener){
         this.mOnBackPressedListener = listener;
     }
 
-    public void setOnKeyboardListener(final EditText edit, final BaseFragment.IKeyboardChanged listener) {
+    public void setOnKeyboardListener(final EditText edit, final IKeyboardChanged listener) {
         edit.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             public void onGlobalLayout() {
                 if(BaseFragment.this.keyboardShown(edit.getRootView())) {
@@ -86,7 +86,7 @@ public abstract class BaseFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try {
-            this.mCallBack = (BaseFragment.OnFragmentCallBackListener)this.getActivity();
+            this.mCallBack = (OnFragmentCallBackListener)this.getActivity();
         } catch (ClassCastException e) {
             e.printStackTrace();
         }

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10"
-    tools:context=".MainActivity">
+    tools:context=".view.main.activity.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -53,4 +53,9 @@
             android:text="@string/map"></TextView>
 
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/main_frame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"></FrameLayout>
 </LinearLayout>

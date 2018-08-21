@@ -1,13 +1,7 @@
-package com.compa.ikhp.base;
+package com.zzak.kr.bikecluster.base;
 
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import android.support.v7.widget.RecyclerView;
-import android.widget.Spinner;
-
-import java.lang.ref.WeakReference;
 
 /**
  * @author IT사업부 곽성규

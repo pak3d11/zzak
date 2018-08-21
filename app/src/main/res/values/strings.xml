@@ -6,4 +6,5 @@
     <string name="home">홈</string>
     <string name="operation_record">운행기록</string>
     <string name="total_distance">총 이동거리</string>
+    <string name="network_error_message">네트워크 에러가 발생하였습니다.</string>
 </resources>

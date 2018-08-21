@@ -1,4 +1,4 @@
-package com.compa.ikhp.base;
+package com.zzak.kr.bikecluster.base;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

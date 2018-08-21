@@ -1,4 +1,4 @@
-package com.compa.ikhp.utils;
+package com.zzak.kr.bikecluster.util;
 
 import android.app.Activity;
 import android.app.AlertDialog;

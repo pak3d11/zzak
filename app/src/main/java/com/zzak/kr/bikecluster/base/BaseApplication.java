@@ -1,4 +1,4 @@
-package com.compa.ikhp.base;
+package com.zzak.kr.bikecluster.base;
 
 import android.app.Application;
 import android.content.Context;
@@ -86,7 +86,7 @@ public abstract class BaseApplication extends Application{
     /**
      * 현재 앱의 패키지명 획득 메소드
      *
-     * build.gradle(app)에 설정된 패키지명
+     * build.gradle(BikeClusterApplication)에 설정된 패키지명
      *
      * @author 곽성규
      * @param context

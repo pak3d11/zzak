@@ -1,4 +1,4 @@
-package com.compa.ikhp.utils;
+package com.zzak.kr.bikecluster.util;
 
 import android.annotation.SuppressLint;
 import android.os.Build;

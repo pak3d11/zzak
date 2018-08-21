@@ -1,8 +1,12 @@
-package com.zzak.kr.bikecluster;
+package com.zzak.kr.bikecluster.view.main.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
+import com.zzak.kr.bikecluster.view.home.fragment.HomeFragment;
+import com.zzak.kr.bikecluster.view.map.MapFragment;
+import com.zzak.kr.bikecluster.view.speedchek.SpeedCheckFragment;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
 
