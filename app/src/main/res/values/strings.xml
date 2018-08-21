@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">BikeCluster</string>
+
+    <string name="map">지도</string>
+    <string name="speed_check">속도계</string>
+    <string name="home">홈</string>
+    <string name="operation_record">운행기록</string>
+    <string name="total_distance">총 이동거리</string>
 </resources>
