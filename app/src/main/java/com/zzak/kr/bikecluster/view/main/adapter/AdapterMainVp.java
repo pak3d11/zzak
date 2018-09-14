@@ -4,13 +4,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.zzak.kr.bikecluster.view.home.fragment.HomeFragment;
-import com.zzak.kr.bikecluster.view.map.MapFragment;
-import com.zzak.kr.bikecluster.view.speedchek.SpeedCheckFragment;
+import com.zzak.kr.bikecluster.view.home.fragment.FmtHome;
+import com.zzak.kr.bikecluster.view.map.view.FmtMap;
+import com.zzak.kr.bikecluster.view.speedchek.view.FmtSpeedCheck;
 
-public class PagerAdapter extends FragmentStatePagerAdapter {
+public class AdapterMainVp extends FragmentStatePagerAdapter {
 
-    public PagerAdapter(FragmentManager fm){
+    public AdapterMainVp(FragmentManager fm){
         super(fm);
     }
 
@@ -20,13 +20,13 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
         switch (position){
 
             case 0:
-                return new HomeFragment();
+                return new FmtHome();
 
             case 1:
-                return new SpeedCheckFragment();
+                return new FmtSpeedCheck();
 
             case 2:
-                return new MapFragment();
+                return new FmtMap();
 
             default:
                 return null;

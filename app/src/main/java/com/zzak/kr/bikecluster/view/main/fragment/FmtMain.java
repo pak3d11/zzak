@@ -4,15 +4,17 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.TextView;
+
+import com.compa.gsk.base.BaseFragment;
 import com.zzak.kr.bikecluster.R;
-import com.zzak.kr.bikecluster.base.BaseFragment;
-import com.zzak.kr.bikecluster.view.main.adapter.PagerAdapter;
+import com.zzak.kr.bikecluster.view.main.adapter.AdapterMainVp;
+import com.zzak.kr.bikecluster.view.main.presenter.PresenterMain;
 
-public class MainFragment extends BaseFragment implements View.OnClickListener{
+public class FmtMain extends BaseFragment<PresenterMain> implements View.OnClickListener{
 
-    public static final String FRAGMENT_TAG = MainFragment.class.getName();
+    public static final String FRAGMENT_TAG = FmtMain.class.getName();
     public static BaseFragment newInstance(Bundle bundle){
-        BaseFragment fragment = new MainFragment();
+        BaseFragment fragment = new FmtMain();
         if(bundle != null){
             fragment.setArguments(bundle);
         }
@@ -25,26 +27,26 @@ public class MainFragment extends BaseFragment implements View.OnClickListener{
     private TextView homeBtn;
 
     @Override
-    protected void BundleData(Bundle savedInstanceState) {
-
+    protected boolean useMainFragment() {
+        return false;
     }
 
     @Override
     protected int inflateLayout() {
-        return R.layout.fragment_main;
+        return R.layout.fmt_main;
     }
 
     @Override
-    protected void findView(View rootView) {
-        mViewPager = rootView.findViewById(R.id.view_pager);
-        mapBtn = rootView.findViewById(R.id.map);
-        speedCheckBtn = rootView.findViewById(R.id.speedCheck);
-        homeBtn = rootView.findViewById(R.id.home);
+    protected void viewFindById(View view) {
+        mViewPager = view.findViewById(R.id.view_pager);
+        mapBtn = view.findViewById(R.id.map);
+        speedCheckBtn = view.findViewById(R.id.speedCheck);
+        homeBtn = view.findViewById(R.id.home);
     }
 
     @Override
-    protected void initData() {
-        mViewPager.setAdapter(new PagerAdapter(getFragmentManager()));
+    protected void viewSetting() {
+        mViewPager.setAdapter(new AdapterMainVp(getFragmentManager()));
         mViewPager.setCurrentItem(0); //처음 실행시 표시될 Fragment position 값
 
         //버튼클릭 이동시 해당 position Tag 설정
@@ -59,7 +61,6 @@ public class MainFragment extends BaseFragment implements View.OnClickListener{
 
     @Override
     public void onClick(View view) {
-
         int tag = (int)view.getTag();
         mViewPager.setCurrentItem(tag);
 
@@ -74,4 +75,5 @@ public class MainFragment extends BaseFragment implements View.OnClickListener{
                 break;
         }
     }
+
 }
