@@ -4,58 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="10"
     tools:context=".ActLauncher">
 
-    <LinearLayout
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="9">
+        android:layout_height="match_parent" />
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/view_pager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </LinearLayout>
-
-    <LinearLayout
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/home"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#f2f3"
-            android:gravity="center"
-            android:text="@string/home"></TextView>
-
-        <TextView
-            android:id="@+id/speedCheck"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#f2f"
-            android:gravity="center"
-            android:text="@string/speed_check"></TextView>
-
-        <TextView
-            android:id="@+id/map"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="#f56"
-            android:gravity="center"
-            android:text="@string/map"></TextView>
-
-    </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/main_frame"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"></FrameLayout>
 </LinearLayout>
