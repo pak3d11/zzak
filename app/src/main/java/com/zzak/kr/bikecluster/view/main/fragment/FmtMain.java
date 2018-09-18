@@ -1,7 +1,9 @@
 package com.zzak.kr.bikecluster.view.main.fragment;
 
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -10,21 +12,20 @@ import com.zzak.kr.bikecluster.R;
 import com.zzak.kr.bikecluster.view.main.adapter.AdapterMainVp;
 import com.zzak.kr.bikecluster.view.main.presenter.PresenterMain;
 
-public class FmtMain extends BaseFragment<PresenterMain> implements View.OnClickListener{
+public class FmtMain extends BaseFragment<PresenterMain> {
 
     public static final String FRAGMENT_TAG = FmtMain.class.getName();
-    public static BaseFragment newInstance(Bundle bundle){
+
+    public static BaseFragment newInstance(Bundle bundle) {
         BaseFragment fragment = new FmtMain();
-        if(bundle != null){
+        if (bundle != null) {
             fragment.setArguments(bundle);
         }
         return fragment;
     }
 
     private ViewPager mViewPager;
-    private TextView mapBtn;
-    private TextView speedCheckBtn;
-    private TextView homeBtn;
+    private TabLayout tabLayout;
 
     @Override
     protected boolean useMainFragment() {
@@ -38,42 +39,39 @@ public class FmtMain extends BaseFragment<PresenterMain> implements View.OnClick
 
     @Override
     protected void viewFindById(View view) {
+
         mViewPager = view.findViewById(R.id.view_pager);
-        mapBtn = view.findViewById(R.id.map);
-        speedCheckBtn = view.findViewById(R.id.speedCheck);
-        homeBtn = view.findViewById(R.id.home);
+        tabLayout = view.findViewById(R.id.tabLayout);
     }
 
     @Override
     protected void viewSetting() {
-        mViewPager.setAdapter(new AdapterMainVp(getFragmentManager()));
+
+        //탭 추가
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.home)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.speed_check)));
+        tabLayout.addTab(tabLayout.newTab().setText(getString(R.string.map)));
+
+        mViewPager.setAdapter(new AdapterMainVp(getFragmentManager(), tabLayout.getTabCount()));
         mViewPager.setCurrentItem(0); //처음 실행시 표시될 Fragment position 값
 
-        //버튼클릭 이동시 해당 position Tag 설정
-        homeBtn.setTag(0);
-        speedCheckBtn.setTag(1);
-        mapBtn.setTag(2);
+        //탭에따른 화면 이동 setting
+        mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                mViewPager.setCurrentItem(tab.getPosition());
+            }
 
-        speedCheckBtn.setOnClickListener(this);
-        homeBtn.setOnClickListener(this);
-        mapBtn.setOnClickListener(this);
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
-
-    @Override
-    public void onClick(View view) {
-        int tag = (int)view.getTag();
-        mViewPager.setCurrentItem(tag);
-
-        switch (view.getId()){
-            case R.id.map :
-                break;
-
-            case R.id.speedCheck :
-                break;
-
-            case R.id.home :
-                break;
-        }
-    }
-
 }

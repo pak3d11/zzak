@@ -10,14 +10,18 @@ import com.zzak.kr.bikecluster.view.speedchek.view.FmtSpeedCheck;
 
 public class AdapterMainVp extends FragmentStatePagerAdapter {
 
-    public AdapterMainVp(FragmentManager fm){
+    private int tabCount;
+
+    public AdapterMainVp(FragmentManager fm, int tabCount) {
         super(fm);
+
+        this.tabCount = tabCount;
     }
 
     @Override
     public Fragment getItem(int position) {
 
-        switch (position){
+        switch (position) {
 
             case 0:
                 return new FmtHome();
@@ -35,6 +39,6 @@ public class AdapterMainVp extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return tabCount;
     }
 }
