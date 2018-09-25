@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.zzak.kr.bikecluster.view.home.fragment.FmtHome;
+import com.zzak.kr.bikecluster.view.home.view.FmtHome;
 import com.zzak.kr.bikecluster.view.map.view.FmtMap;
 import com.zzak.kr.bikecluster.view.speedchek.view.FmtSpeedCheck;
 

@@ -1,5 +1,6 @@
-package com.zzak.kr.bikecluster.view.home.fragment;
+package com.zzak.kr.bikecluster.view.home.view;
 
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
@@ -22,7 +23,6 @@ public class FmtHome extends BaseFragment<PresenterHome> implements ContractHome
 
     @Override
     protected int inflateLayout() {
-
         return R.layout.fmt_home;
     }
 
@@ -32,20 +32,20 @@ public class FmtHome extends BaseFragment<PresenterHome> implements ContractHome
         operationRecord = view.findViewById(R.id.operation_record);
         totalDistance = view.findViewById(R.id.total_distance);
         homeRecycler = view.findViewById(R.id.home_recycler);
-
     }
 
     @Override
     protected void viewSetting() {
 
+        homeRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        this.mPresenter.setRecyclerView(homeRecycler);
     }
 
     @Override
-    public void showText(String text) {
+    public void setText() {
 
         //운행기록, 총이동거리 초기 text setting
         operationRecord.setText(getString(R.string.operation_record));
         totalDistance.setText(getString(R.string.total_distance));
-
     }
 }

@@ -6,24 +6,27 @@
     android:weightSum="3">
 
     <TextView
+        android:id="@+id/home_header_date"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="2017.12.12"/>
+        android:text="날짜" />
 
     <TextView
+        android:id="@+id/home_header_runtime"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="2시간 45분"/>
+        android:text="시간" />
 
     <TextView
+        android:id="@+id/home_header_distance"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="19.35Km"/>
+        android:text="이동거리" />
 
 </LinearLayout>
