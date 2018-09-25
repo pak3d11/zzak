@@ -1,11 +1,10 @@
 package com.zzak.kr.bikecluster.view.map.response;
 
-import com.compa.gsk.http.ResBase;
-
+import com.compa.gsk.http.ResponseBase;
 import java.util.ArrayList;
 
 
-public class RESList extends ResBase {
+public class RESList extends ResponseBase {
 
     public String current_page;
     public String total_count;

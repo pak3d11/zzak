@@ -7,7 +7,7 @@ public class AppBikeCluster extends BaseApplication {
 
     @Override
     public void initTag() {
-
+        base_url = "http://api.ikn.kr/whp/";
     }
 
     @Override

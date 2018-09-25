@@ -37,7 +37,6 @@ public class PresenterMap extends BasePresenter<FmtMap> implements ContractMap.P
 
     public void req(){
         REQList reqList = new REQList();
-        reqList.baseUrl = "http://api.ikn.kr/whp/";
         reqList.body = UtilHttp.requestBody(new String[]{"page"}, new String[]{"1"});
         this.<REQList, RESList>request(reqList, new CompaRESTListener<RESList>() {
             @Override

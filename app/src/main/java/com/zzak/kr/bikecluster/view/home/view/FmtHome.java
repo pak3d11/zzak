@@ -28,7 +28,6 @@ public class FmtHome extends BaseFragment<PresenterHome> implements ContractHome
 
     @Override
     protected void viewFindById(View view) {
-
         operationRecord = view.findViewById(R.id.operation_record);
         totalDistance = view.findViewById(R.id.total_distance);
         homeRecycler = view.findViewById(R.id.home_recycler);
@@ -37,7 +36,7 @@ public class FmtHome extends BaseFragment<PresenterHome> implements ContractHome
     @Override
     protected void viewSetting() {
 
-        homeRecycler.setLayoutManager(new LinearLayoutManager(getContext()));
+        homeRecycler.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         this.mPresenter.setRecyclerView(homeRecycler);
     }
 

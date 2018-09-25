@@ -4,28 +4,31 @@ import com.compa.gsk.base.BaseRecyclerViewItem;
 
 public class Data extends BaseRecyclerViewItem {
 
-    private int type;
     private HeaderData header;
     private ListData list;
     private FooterData footer;
 
     public Data(int type, HeaderData header){
-        this.type = type;
+        this.viewType = type;
         this.header = header;
     }
 
     public Data(int type, ListData list){
-        this.type = type;
+        this.viewType = type;
         this.list = list;
     }
 
     public Data(int type, FooterData footer){
-        this.type = type;
+        this.viewType = type;
         this.footer = footer;
     }
 
+    public void setType(int viewType){
+        this.viewType = viewType;
+    }
+
     public int getType(){
-        return type;
+        return viewType;
     }
 
     public HeaderData getHeader(){
