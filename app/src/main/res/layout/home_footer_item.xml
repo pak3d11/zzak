@@ -4,9 +4,9 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/current_speed"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="속도계 화면 페이지 입니다." />
+        android:gravity="center"
+        android:text="기록초기화" />
 
 </LinearLayout>
