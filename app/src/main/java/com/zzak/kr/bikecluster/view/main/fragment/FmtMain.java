@@ -14,8 +14,6 @@ import com.zzak.kr.bikecluster.view.main.presenter.PresenterMain;
 
 public class FmtMain extends BaseFragment<PresenterMain> {
 
-    public static final String FRAGMENT_TAG = FmtMain.class.getName();
-
     public static BaseFragment newInstance(Bundle bundle) {
         BaseFragment fragment = new FmtMain();
         if (bundle != null) {

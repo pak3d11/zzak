@@ -12,5 +12,4 @@ public interface ContractHome {
         void setRecyclerView(RecyclerView recyclerView);
 
     }
-
 }

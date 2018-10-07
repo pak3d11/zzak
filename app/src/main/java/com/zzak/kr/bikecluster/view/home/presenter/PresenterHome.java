@@ -41,7 +41,7 @@ public class PresenterHome extends BasePresenter<FmtHome> implements ContractHom
 
             }
         }
-        adapterHomeRv.notifyDataSetChanged();
+        adapterHomeRv.refreshAll(adapterHomeRv.getItems());
     }
 
     @Override
