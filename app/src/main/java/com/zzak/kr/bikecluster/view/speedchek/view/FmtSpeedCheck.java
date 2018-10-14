@@ -9,6 +9,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.compa.gsk.base.BaseFragment;
@@ -17,9 +18,11 @@ import com.zzak.kr.bikecluster.R;
 public class FmtSpeedCheck extends BaseFragment {
 
     private TextView currentSpeed;
+    private Button start;
     private LocationManager locationManager;
     private LocationListener locationListener;
     double mySpeed, maxSpeed;
+    boolean isStart;
 
     @Override
     protected boolean useMainFragment() {
@@ -36,26 +39,48 @@ public class FmtSpeedCheck extends BaseFragment {
     protected void viewFindById(View view) {
 
         currentSpeed = view.findViewById(R.id.current_speed);
+        start = view.findViewById(R.id.start);
     }
 
     @Override
     protected void viewSetting() {
 
-        maxSpeed = mySpeed = 0;
+        isStart = false;
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-        locationListener = new SpeedoActionListener();
+                if (!isStart){
+
+                    //측정시작
+                    isStart = true;
+                    start.setText("측정종료");
+
+                    maxSpeed = mySpeed = 0;
+
+                    if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                            && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+                        ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+
+                    }
+
+                    locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
+                    locationListener = new SpeedoActionListener();
+                    locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+
+                } else {
+
+                    //측정종료
+                    isStart = false;
+                    start.setText("측정시작");
+                    locationManager.removeUpdates(locationListener);
+
+                }
 
 
-        if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
-                && ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-
-            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
-
-        }
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-
-
+            }
+        });
     }
 
     private class SpeedoActionListener implements LocationListener {
